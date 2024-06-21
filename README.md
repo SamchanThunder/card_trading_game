@@ -1,2 +1,1 @@
-# card_trading_game
- 
+https://samchanthunder.github.io/card_trading_game/ (incomplete)
