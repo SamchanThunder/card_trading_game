@@ -1,14 +1,19 @@
-#mainHeader {
+#headerContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: #ffffff;
     height: 80px;
     box-shadow: 0px 10px 5px rgb(188, 143, 152);
     color: white;
+}
+
+#mainHeader {
     display: flex;
-    flex-direction: row-reverse;
     align-items: center;
-  }
-  
-#headerButton{
+}
+
+#headerButton {
     height: 80px;
     width: 120px;
     margin-right: 40px;
@@ -16,26 +21,33 @@
     border: none;
 }
 
-#headerButton:hover{
-    background-color:rgb(244, 244, 244);
+#headerButton:hover {
+    background-color: rgb(244, 244, 244);
 }
 
-#headerHome{
+#headerHome {
     margin-top: 2px;
     height: 70px;
 }
 
-#headerButton2{
-    height: 80px;
+#headerButton2 {
+    height: 77px;
     width: 100px;
     margin-right: 40px;
     background: none;
     border: none;
     color: pink;
-    font-size:22px;
+    font-size: 22px;
     font-weight: bold;
 }
 
-#headerButton2:hover{
-    background-color:rgb(244, 244, 244);
+#headerButton2:hover {
+    background-color: rgb(244, 244, 244);
+}
+
+#usernameDisplay {
+    color: pink;
+    font-weight: bold;
+    font-size: 40px;
+    margin-left: 20px; /* Adjust margin as needed */
 }
