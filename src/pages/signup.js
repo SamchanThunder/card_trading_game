@@ -1,19 +1,25 @@
 import '../style_sheets/signup.css';
 import React, { useState } from "react";
-import { auth } from '../scripts/firebase';
+import { auth, db } from '../scripts/firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { ref, set } from "firebase/database";
+import { Navigate, useNavigate  } from 'react-router-dom';
  
 export function SignUp(){
     const [email, setEmail] = useState('');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
     function signUp(x){
         x.preventDefault();
         createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-
-            console.log(userCredential);
+            set(ref(db, 'users/' + userCredential.user.uid), {
+                username: username,
+            }) 
+            console.log("Username is " + username);
+            navigate("/card_trading_game");
         }).catch((error) => {
             console.log(error);
         })
@@ -23,8 +29,9 @@ export function SignUp(){
         <div id="signUpBox">
             <form onSubmit={signUp}>
             <div id="signUp">
+                <div id="already">Already have an account? <a href="/card_trading_game/signin"><br></br>Sign In</a></div>
                 Email
-                <input type="email" id="signUpInput" name="myInput" value={username} onChange={(e) => setEmail(e.target.value)}/>
+                <input type="email" id="signUpInput" name="myInput" value={email} onChange={(e) => setEmail(e.target.value)}/>
                 Username
                 <input id="signUpInput" name="myInput" value={username} onChange={(e) => setUsername(e.target.value)}/>
                 Password

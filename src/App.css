@@ -16,11 +16,26 @@
     border: none;
 }
 
+#headerButton:hover{
+    background-color:rgb(244, 244, 244);
+}
+
 #headerHome{
     margin-top: 2px;
     height: 70px;
 }
 
-#headerButton:hover{
+#headerButton2{
+    height: 80px;
+    width: 100px;
+    margin-right: 40px;
+    background: none;
+    border: none;
+    color: pink;
+    font-size:22px;
+    font-weight: bold;
+}
+
+#headerButton2:hover{
     background-color:rgb(244, 244, 244);
 }

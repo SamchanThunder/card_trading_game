@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { auth } from './firebase';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
+import { Navigate } from '../scripts/navigate';
 
 export function AuthDetails(){
     const [user, setUser] = useState(null);
