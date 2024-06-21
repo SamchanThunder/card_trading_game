@@ -6,7 +6,7 @@ import './App.css';
 
 function App() {
   if(isMobile){
-    alert("This game is meant to be played on the computer. Turn your phone horizontal for best gameplay.")
+    alert("The game does not function on mobile. Please play it on your computer.")
   }
   return (
     <div>
