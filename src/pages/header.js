@@ -1,5 +1,9 @@
 import Home from '../images/home.svg'
 import Door from '../images/door.svg'
+import Store from '../images/store.svg'
+import Storage from '../images/storage.svg'
+import Trade from '../images/trade.svg'
+import Won from '../images/won.svg'
 import { userSignOut } from '../scripts/authdetails';
 import { auth, db } from '../scripts/firebase';
 import { useState } from 'react';
@@ -23,7 +27,17 @@ export function Header() {
         return (
             <div id="headerContainer">
                 <div id="usernameDisplay">{currentUsername}</div>
+                <img src={Won} id="usernameDisplay" alt="Trade"/><div id="usernameDisplay">000</div>
                 <header id="mainHeader">
+                    <button id="headerButton" onClick={() => newPage("/card_trading_game")}>
+                        <img src={Trade} id="headerHome" alt="Trade"/>
+                    </button>
+                    <button id="headerButton" onClick={() => newPage("/card_trading_game")}>
+                        <img src={Store} id="headerHome" alt="Market"/>
+                    </button>
+                    <button id="headerButton" onClick={() => newPage("/card_trading_game")}>
+                        <img src={Storage} id="headerHome" alt="Inventory"/>
+                    </button>
                     <button id="headerButton2" onClick={leaveAccount}>
                         <img src={Door} id="headerHome" alt="Sign Out"/>
                     </button>
@@ -54,7 +68,7 @@ export function Header() {
                 if (snapshot.exists()) {
                     const userData = snapshot.val();
                     const retrievedUsername = userData.username;
-                    setCurrentUsername(retrievedUsername); // Update state with retrieved username
+                    setCurrentUsername(retrievedUsername); 
                     console.log("Retrieved username:", retrievedUsername);
                 } else {
                     console.log("No data available");
