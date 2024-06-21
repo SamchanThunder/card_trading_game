@@ -12,6 +12,13 @@ export function SignUp(){
     const navigate = useNavigate();
 
     function signUp(x){
+        if(username.length > 12){
+            alert("Username cannot surpass 12 characters.");
+            return;
+        }else if(username.length < 3){
+            alert("Username needs to be at least 3 characters.");
+            return;
+        }
         x.preventDefault();
         createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
