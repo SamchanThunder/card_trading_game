@@ -59,6 +59,84 @@ export function Market(){
         }, 5000); 
     }
 
+    async  function rollSilver() {
+        if(currentWon < 5000){
+            alert("Not enough won.")
+            return;
+        }
+
+        setShowRollingCards(true);
+
+        const randomRarity = Math.floor(Math.random() * 100) + 1;
+        //10% bronze, 70% silver, 20% gold
+        setTimeout(async () => {            
+            console.log("Rolled" + " Chance: " + randomRarity);
+            let nameObj = "0";
+            if(randomRarity <= 70){
+                const cardsArray = Object.keys(silverCards); 
+                const randomIndex = Math.floor(Math.random() * cardsArray.length);
+                nameObj = Object.keys(silverCards)[randomIndex]
+            }else if(randomRarity <= 80){
+                const cardsArray = Object.keys(bronzeCards); 
+                const randomIndex = Math.floor(Math.random() * cardsArray.length);
+                nameObj = Object.keys(bronzeCards)[randomIndex]
+            }else{
+                const cardsArray = Object.keys(goldCards); 
+                const randomIndex = Math.floor(Math.random() * cardsArray.length);
+                nameObj = Object.keys(goldCards)[randomIndex]
+            }
+            setCardName(nameObj);
+            console.log(nameObj);
+
+            let tempArray = currentCards;
+            console.log(tempArray);
+            tempArray.push(nameObj);
+            setCurrentCards(tempArray);
+
+            update(ref(db, 'users/' + user.uid), {
+                cards: currentCards,
+                won: currentWon - 5000,
+            }) 
+        }, 5000); 
+    }
+
+    async  function rollGold() {
+        if(currentWon < 15000){
+            alert("Not enough won.")
+            return;
+        }
+
+        setShowRollingCards(true);
+
+        const randomRarity = Math.floor(Math.random() * 100) + 1;
+        //30% silver, 70% gold
+        setTimeout(async () => {            
+            console.log("Rolled" + " Chance: " + randomRarity);
+            let nameObj = "0";
+            if(randomRarity <= 30){
+                const cardsArray = Object.keys(silverCards); 
+                const randomIndex = Math.floor(Math.random() * cardsArray.length);
+                nameObj = Object.keys(silverCards)[randomIndex]
+            }else{
+                const cardsArray = Object.keys(goldCards); 
+                const randomIndex = Math.floor(Math.random() * cardsArray.length);
+                nameObj = Object.keys(goldCards)[randomIndex]
+            }
+            setCardName(nameObj);
+            console.log(nameObj);
+
+            let tempArray = currentCards;
+            console.log(tempArray);
+            tempArray.push(nameObj);
+            setCurrentCards(tempArray);
+
+            update(ref(db, 'users/' + user.uid), {
+                cards: currentCards,
+                won: currentWon - 15000,
+            }) 
+        }, 5000); 
+    }
+
     function exit() {
         if(showRollingCards){
             setShowRollingCards(false); 
@@ -102,8 +180,8 @@ export function Market(){
             </div>
             <div id="marketBox2">
                 <button id="marketButton1" onClick={rollBronze}>1000 WON</button>
-                <button id="marketButton1">10000 WON</button>
-                <button id="marketButton1">50000 WON</button>
+                <button id="marketButton1" onClick={rollSilver}>5000 WON</button>
+                <button id="marketButton1" onClick={rollGold}>15000 WON</button>
             </div>
             {showRollingCards && (<div id="rollingCards">
                 <img src={require(`../cardImages/${cards[cardName].image}`)} id="chosenCard" alt="Bronze Pack" className="rotate-image"/>

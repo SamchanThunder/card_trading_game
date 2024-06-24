@@ -19,6 +19,10 @@ export function Storage(){
                 if (snapshot.exists()) {
                     const userData = snapshot.val();
                     const retrievedCards = userData.cards;
+                    retrievedCards.map(Number);
+                    retrievedCards.sort(function(a, b) {
+                        return a - b;
+                      });
                     if(retrievedCards != null){
                         setCurrentCards(retrievedCards); 
                     }else{
