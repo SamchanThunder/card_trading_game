@@ -4,6 +4,7 @@ import { StartPage } from '../scripts/startpage';
 import { SignUp } from '../pages/signup.js'
 import { SignIn } from '../pages/signin.js';
 import { Market } from '../pages/market.js';
+import { Storage } from '../pages/storage.js'
 import { AuthProvider } from "../scripts/auth.js";
 
 export function RouteFunction(){
@@ -16,6 +17,7 @@ export function RouteFunction(){
                     <Route path="/card_trading_game/signup" element={<SignUp/>}/>
                     <Route path="/card_trading_game/signin" element={<SignIn/>}/>
                     <Route path="/card_trading_game/market" element={<Market/>}/>
+                    <Route path="/card_trading_game/inventory" element={<Storage/>}/>
                 </Routes>
             </Router>
         </AuthProvider>

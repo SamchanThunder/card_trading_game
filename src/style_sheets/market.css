@@ -10,16 +10,25 @@
     position: relative;
     display: flex;
     justify-content: center;
-    gap: 150px;
-    top: 150px;
+    gap: 190px;
+    top: 120px;
 }
 
 #marketItem1{
-    width: 200px;
+    width: 240px;
 }
 #marketButton1{
     width: 250px;
     height: 75px;
+    color:rgb(224, 171, 180);
+    font-size: 40px;
+    font-weight: bold;
+    border-color: rgb(196, 133, 144);
+    border-radius: 10px;
+    border-width: 4px;
+}
+#marketButton1:hover{
+    background-color: rgb(223, 223, 223);
 }
 
 #rollingCards{
@@ -38,10 +47,11 @@
 
 #chosenCard{
     position: fixed;
-    top: 50%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 270px;
+    color: white;
 }
 
 #cardName{
@@ -62,4 +72,22 @@
     font-size: 100px;
     background: none;
     border: none;
+}
+
+@keyframes rotateAnimation {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.rotate-image {
+    animation: rotateAnimation 5s linear;
+    transform-origin: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

@@ -38,7 +38,7 @@ export function Header() {
                     <button id="headerButton" onClick={() => newPage("/card_trading_game/market")}>
                         <img src={Store} id="headerHome" alt="Market"/>
                     </button>
-                    <button id="headerButton" onClick={() => newPage("/card_trading_game")}>
+                    <button id="headerButton" onClick={() => newPage("/card_trading_game/inventory")}>
                         <img src={Storage} id="headerHome" alt="Inventory"/>
                     </button>
                     <button id="headerButton2" onClick={leaveAccount}>

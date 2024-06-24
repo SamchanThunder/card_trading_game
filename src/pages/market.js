@@ -97,16 +97,16 @@ export function Market(){
         <div>
             <div id="marketBox1">
                 <img src={Pack} id="marketItem1" alt="Bronze Pack"/>
-                <img src={Pack} id="marketItem1" alt="Bronze Pack"/>
-                <img src={Pack} id="marketItem1" alt="Bronze Pack"/>
+                <img src={Pack} id="marketItem1" alt="Silver Pack"/>
+                <img src={Pack} id="marketItem1" alt="Gold Pack"/>
             </div>
             <div id="marketBox2">
-                <button id="marketButton1" onClick={rollBronze}>500 W</button>
-                <button id="marketButton1"></button>
-                <button id="marketButton1"></button>
+                <button id="marketButton1" onClick={rollBronze}>1000 WON</button>
+                <button id="marketButton1">10000 WON</button>
+                <button id="marketButton1">50000 WON</button>
             </div>
             {showRollingCards && (<div id="rollingCards">
-                <img src={Pack} id="chosenCard" alt="Bronze Pack"/>
+                <img src={require(`../cardImages/${cards[cardName].image}`)} id="chosenCard" alt="Bronze Pack" className="rotate-image"/>
                 <div id="cardName">{cards[cardName].name + " (" + cards[cardName].rarity + ")"}</div>
                 <button id="exitMarket" onClick={exit}>X</button>
             </div>)}

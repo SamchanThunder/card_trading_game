@@ -1,0 +1,22 @@
+#storageBox{
+    display: flex;
+    position: relative;
+    top: 20px;
+    left: 20px;
+    width: 97%;
+    flex-wrap: wrap;
+
+}
+
+.storageItem{
+    height: 280px; 
+    flex: 0 0 200px;
+    margin: 10px;
+    background-color: white;
+}
+
+
+.storageItem:hover {
+    transform: scale(1.1); 
+}
+
