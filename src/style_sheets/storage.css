@@ -1,22 +1,31 @@
 #storageBox{
     display: flex;
     position: relative;
-    top: 20px;
-    left: 20px;
+    top: 60px;
+    left: 30px;
     width: 97%;
     flex-wrap: wrap;
 
 }
 
 .storageItem{
-    height: 280px; 
-    flex: 0 0 200px;
+    height: 300px; 
+    flex: 0 0 282px;
     margin: 10px;
-
+    scale: 1.2
 }
-
-
 .storageItem:hover {
     transform: scale(1.1); 
 }
 
+#imgStorage{
+    display: block;
+    margin: auto;
+    width: 150px;
+}
+#storageText{
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}

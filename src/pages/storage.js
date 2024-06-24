@@ -40,7 +40,7 @@ export function Storage(){
     return(
         <div id="storageBox">
             {currentCards.map((card, index) => (
-                 <img key={index} src={require(`../cardImages/${cards[card].image}`)} class="storageItem"/>
+                 <div class="storageItem"><img id="imgStorage" key={index} src={require(`../cardImages/${cards[card].image}`)}/><div id="storageText">{cards[card].name}</div></div>
             ))}
         </div>
     )
