@@ -1,17 +1,22 @@
 {
   "files": {
-    "main.css": "/card_trading_game/static/css/main.3206686d.css",
-    "main.js": "/card_trading_game/static/js/main.010c5a6d.js",
+    "main.css": "/card_trading_game/static/css/main.f318d950.css",
+    "main.js": "/card_trading_game/static/js/main.03f71b60.js",
     "static/js/453.6a01b817.chunk.js": "/card_trading_game/static/js/453.6a01b817.chunk.js",
+    "static/media/pack.png": "/card_trading_game/static/media/pack.297bb4aa5b17be929325.png",
+    "static/media/won.svg": "/card_trading_game/static/media/won.019fa44506dbffac924707d32fcc30f1.svg",
+    "static/media/store.svg": "/card_trading_game/static/media/store.8aa11e2ee223388d12d5c98811978044.svg",
     "static/media/door.svg": "/card_trading_game/static/media/door.cb0e8a0ced91ed4c85b5df314c216f5b.svg",
+    "static/media/storage.svg": "/card_trading_game/static/media/storage.85b56aa920ddb2befac50c5e0aee3b39.svg",
     "static/media/home.svg": "/card_trading_game/static/media/home.54cff84ebcaec41edf79e00d954eaaaa.svg",
     "index.html": "/card_trading_game/index.html",
-    "main.3206686d.css.map": "/card_trading_game/static/css/main.3206686d.css.map",
-    "main.010c5a6d.js.map": "/card_trading_game/static/js/main.010c5a6d.js.map",
+    "static/media/trade.svg": "/card_trading_game/static/media/trade.aaecf6a92e56e790a5d370ae43e5cafa.svg",
+    "main.f318d950.css.map": "/card_trading_game/static/css/main.f318d950.css.map",
+    "main.03f71b60.js.map": "/card_trading_game/static/js/main.03f71b60.js.map",
     "453.6a01b817.chunk.js.map": "/card_trading_game/static/js/453.6a01b817.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3206686d.css",
-    "static/js/main.010c5a6d.js"
+    "static/css/main.f318d950.css",
+    "static/js/main.03f71b60.js"
   ]
 }
