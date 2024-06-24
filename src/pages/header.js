@@ -12,6 +12,7 @@ import { ref, get } from "firebase/database";
 
 export function Header() {
     const [currentUsername, setCurrentUsername] = useState('');
+    const [currentWon, setWon] = useState('');
     var user = auth.currentUser;
     const { newPage } = Navigate();
 
@@ -26,13 +27,15 @@ export function Header() {
         retrieveUsername(user.uid);
         return (
             <div id="headerContainer">
-                <div id="usernameDisplay">{currentUsername}</div>
-                <img src={Won} id="usernameDisplay" alt="Trade"/><div id="usernameDisplay">000</div>
+                <header id="leftHeader">
+                    <div id="usernameDisplay">{currentUsername}</div>
+                    <img src={Won} id="usernameDisplay" alt="Won"/><div id="wonDisplay">{currentWon}</div>
+                </header>
                 <header id="mainHeader">
                     <button id="headerButton" onClick={() => newPage("/card_trading_game")}>
                         <img src={Trade} id="headerHome" alt="Trade"/>
                     </button>
-                    <button id="headerButton" onClick={() => newPage("/card_trading_game")}>
+                    <button id="headerButton" onClick={() => newPage("/card_trading_game/market")}>
                         <img src={Store} id="headerHome" alt="Market"/>
                     </button>
                     <button id="headerButton" onClick={() => newPage("/card_trading_game")}>
@@ -68,8 +71,10 @@ export function Header() {
                 if (snapshot.exists()) {
                     const userData = snapshot.val();
                     const retrievedUsername = userData.username;
+                    const retrievedWon = userData.won;
                     setCurrentUsername(retrievedUsername); 
-                    console.log("Retrieved username:", retrievedUsername);
+                    setWon(retrievedWon)
+                    console.log("Retrieved username:", retrievedUsername, " Won: ", retrievedWon);
                 } else {
                     console.log("No data available");
                 }

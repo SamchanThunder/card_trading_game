@@ -12,6 +12,10 @@
     display: flex;
     align-items: center;
 }
+#leftHeader{
+    display: flex;
+    align-items: center;
+}
 
 #headerButton {
     height: 80px;
@@ -49,5 +53,12 @@
     color: pink;
     font-weight: bold;
     font-size: 40px;
-    margin-left: 20px; /* Adjust margin as needed */
+    margin-left: 20px; 
+}
+
+#wonDisplay{
+    position: relative;
+    color: pink;
+    font-weight: bold;
+    font-size: 40px;
 }

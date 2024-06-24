@@ -1,8 +1,9 @@
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import { Header } from '../pages/header';
 import { StartPage } from '../scripts/startpage';
-import {SignUp} from '../pages/signup.js'
-import {SignIn} from '../pages/signin.js';
+import { SignUp } from '../pages/signup.js'
+import { SignIn } from '../pages/signin.js';
+import { Market } from '../pages/market.js';
 import { AuthProvider } from "../scripts/auth.js";
 
 export function RouteFunction(){
@@ -14,6 +15,7 @@ export function RouteFunction(){
                     <Route path="/card_trading_game" element={<StartPage />}/>
                     <Route path="/card_trading_game/signup" element={<SignUp/>}/>
                     <Route path="/card_trading_game/signin" element={<SignIn/>}/>
+                    <Route path="/card_trading_game/market" element={<Market/>}/>
                 </Routes>
             </Router>
         </AuthProvider>

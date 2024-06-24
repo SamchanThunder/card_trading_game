@@ -24,6 +24,8 @@ export function SignUp(){
         .then((userCredential) => {
             set(ref(db, 'users/' + userCredential.user.uid), {
                 username: username,
+                won: 1000,
+                cards: []
             }) 
             console.log("Username is " + username);
             navigate("/card_trading_game");
