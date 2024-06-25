@@ -8,10 +8,11 @@ export function Trade() {
     const [currentUID, setUID] = useState([]);
     const [currentWon, setWon] = useState([]);
     const [currentName, setName] = useState([]);
+    const [currentCards, setCards] = useState([]);
     const [username, setUsername] = useState("");
     const [loading, setLoading] = useState(true);
     const [showTradingUser, setShowTradingUser] = useState(false);
-    const [selectedUser, setSelectedUser] = useState({ uid: "", name: "", won: ""});; 
+    const [selectedUser, setSelectedUser] = useState({ uid: "", name: "", won: "", cards: null});; 
 
     const user = auth.currentUser;
 
@@ -22,7 +23,7 @@ export function Trade() {
     }, [user]);
 
     useEffect(() => {
-        if (selectedUser.won !== "") {
+        if (selectedUser.cards !== null) {
             setShowTradingUser(true);
         } else {
             setShowTradingUser(false);
@@ -44,6 +45,7 @@ export function Trade() {
                     });
 
                     setUID(usersArray.map(user => user.uid));
+                    setCards(usersArray.map(user => user.cards));
                     setWon(usersArray.map(user => user.won));
                     const namesArray = usersArray.map(user => user.username.toUpperCase());
                     setName(namesArray);
@@ -79,11 +81,14 @@ export function Trade() {
         let UID2 = "";
         let won2 = 0;
         let name2 = username.toUpperCase();
+        let cards2 = [];
         if(currentName.includes(username.toUpperCase())){
             let indexTwo = currentName.indexOf(username.toUpperCase());
             UID2 = currentUID[indexTwo];
             won2 = currentWon[indexTwo];
-            setSelectedUser({ uid: UID2, name: name2, won: won2});
+            cards2 = currentCards[indexTwo];
+            console.log(cards2);
+            setSelectedUser({ uid: UID2, name: name2, won: won2, cards: cards2});
         }else{
             alert("That user does not exist.");
         }
@@ -109,7 +114,7 @@ export function Trade() {
             </div>
 
             {showTradingUser && (
-                <TradingUser uid2={selectedUser.uid} name2={selectedUser.name} won2={selectedUser.won} />
+                <TradingUser uid2={selectedUser.uid} name2={selectedUser.name} won2={selectedUser.won} cards2={selectedUser.cards} />
             )}
         </div>
     );

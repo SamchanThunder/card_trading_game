@@ -1,22 +1,26 @@
 import { ref, get } from "firebase/database";
 import { useState, useEffect } from "react";
 import { auth, db } from '../scripts/firebase'; 
+import { cards } from '../scripts/cardDatabase';
 import '../style_sheets/trade.css';
 
-export function TradingUser({uid2,name2,won2}){
+export function TradingUser({uid2,name2,won2,cards2}){
     var user = auth.currentUser;
-    const [currentCards, setCurrentCards] = useState([]);
-    const [currentName, setName] = useState("");
-    const [currentUID, setUID] = useState("");
+    const [cards1, setCurrentCards] = useState([]);
+    const [name1, setName] = useState("");
+    const [won1, setWon] = useState("");
+    const [uid1, setUID] = useState("");
+    const [tradeCard1, setTradeCard1] = useState([]);
+    const [tradeCard2, setTradeCard2] = useState([]);
 
-    console.log("2: " + uid2 + name2 + won2);
+    console.log("INFO 2: ", uid2, name2, won2, cards2);
     useEffect(() => {
     retrieveCard(user.uid);
     }, [])
 
     useEffect(() => {
-        console.log("INFO:", currentCards, currentName, currentUID);
-    }, [currentUID]);
+        console.log("INFO 1: ", uid1, name1, won1, cards1);
+    }, [uid1]);
 
     function retrieveCard(uid) {
         const userRef = ref(db, 'users/' + uid);
@@ -36,7 +40,8 @@ export function TradingUser({uid2,name2,won2}){
                     }
                     
                     const retrievedUsername = userData.username;
-
+                    const rWon = userData.won;
+                    setWon(rWon);
                     setName(retrievedUsername);
                     setUID(uid);
                 } else {
@@ -48,9 +53,51 @@ export function TradingUser({uid2,name2,won2}){
             });
     }
 
-    return(
-        <div id="tradingBackground">
-            123123
+    function reloadPage(){
+        window.location.reload();
+    }
+
+    function addCardOne(x){
+        console.log(x);
+    }
+
+    function addCardTwo(x){
+        console.log(x);
+    }
+    return (
+        <div id="tradeBox">
+            <div id="tradingBackground">
+                <div id="tradingSide">
+                    <div className="cardsContainer">
+                        {cards1.map((card, index) => (
+                            <button className="cardsButton" onClick={() => addCardOne(card)} key={index}>
+                                <img id="cardsImg" src={require(`../cardImages/${cards[card].image}`)} alt={cards[card].name} />
+                                <div id="cardsText">{cards[card].name}</div>
+                            </button>
+                        ))}
+                    </div>
+                </div>
+                <div id="tradingMiddle">
+                    <button id="leaveTrade" onClick={reloadPage}>X</button>
+                    <br />
+                    Amount of Won You Offer:
+                    <input id="inputWon"></input><br />
+                    Amount of Won You Want:
+                    <input id="inputWon"></input>
+                    <button id="submitTrade">SEND REQUEST</button>
+                </div>
+                <div id="tradingSide">
+                    <div className="cardsContainer">
+                        {cards2.map((card, index) => (
+                            <button className="cardsButton" onClick={() => addCardTwo(card)} key={index}>
+                                <img id="cardsImg" src={require(`../cardImages/${cards[card].image}`)} alt={cards[card].name} />
+                                <div id="cardsText">{cards[card].name}</div>
+                            </button>
+                        ))}
+                    </div>
+                </div>
+            </div>
         </div>
-    )
+    );
+     
 }

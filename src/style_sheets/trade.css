@@ -1,10 +1,11 @@
-#tradeBox{
+#tradeBox {
     display: flex;
     position: relative;
     top: 20px;
     height: 620px;
     align-items: center;
     justify-content: center;
+    overflow: auto;
 }
 
 #tradeItem{
@@ -68,9 +69,102 @@
     font-weight: bold;
 }
 
-#tradingBackground{
+#tradingBackground {
     z-index: 2;
     position: fixed;
-    height: 1000px;
-    background-color: white;
+    top: 90px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    background-color: pink;
+    overflow-x: hidden;
+}
+
+#tradingSide {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+#tradingMiddle {
+    width: 25%;
+}
+
+.cardsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.cardsButton {
+    display: block;
+    margin: 5px;
+    width: 150px;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.cardsButton:hover {
+    background-color: rgb(138, 231, 138);
+}
+
+#cardsImg {
+    max-width: 100%;
+    height: auto;
+}
+
+#cardsText {
+    color: rgb(209, 92, 112);
+    font-weight: bold;
+}
+
+#tradingMiddle{
+    display: flex;
+    flex-direction: column;
+    background:rgb(245, 177, 188);
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    font-size: 25px
+}
+
+#inputWon{
+    height: 30px;
+    font-size: 20px;
+    text-align: center;
+}
+
+#submitTrade{
+    margin-top: auto;
+    margin-bottom: 30px;
+    width: 300px;
+    height: 70px;
+    border-radius: 20px;
+    border: none;
+    background-color: rgb(255, 77, 187);
+    font-size: 30px;
+    color: white;
+    font-weight: bold;
+}
+
+#submitTrade:hover{
+    background-color: rgb(235, 103, 125);
+    cursor: pointer;
+}
+
+#leaveTrade{
+    background: none;
+    color: rgb(221, 95, 95);
+    border: none;
+    font-size: 80px;
+}
+
+#leaveTrade:hover{
+    color: red;
+    cursor: pointer;
 }
