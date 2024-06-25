@@ -33,7 +33,7 @@ export function Header() {
                     <img src={Won} id="usernameDisplay" alt="Won"/><div id="wonDisplay">{currentWon}</div>
                 </header>
                 <header id="mainHeader">
-                    <button id="headerButton" onClick={() => newPage("/card_trading_game")}>
+                    <button id="headerButton" onClick={() => newPage("/card_trading_game/trade")}>
                         <img src={Trade} id="headerHome" alt="Trade"/>
                     </button>
                     <button id="headerButton" onClick={() => newPage("/card_trading_game/market")}>
