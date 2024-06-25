@@ -72,7 +72,7 @@ export function TradingUser({uid2,name2,won2,cards2}){
                         {cards1.map((card, index) => (
                             <button className="cardsButton" onClick={() => addCardOne(card)} key={index}>
                                 <img id="cardsImg" src={require(`../cardImages/${cards[card].image}`)} alt={cards[card].name} />
-                                <div id="cardsText">{cards[card].name}</div>
+                                <div id="cardsText">{cards[card].name + " (" +cards[card].rarity + ")"}</div>
                             </button>
                         ))}
                     </div>
@@ -91,7 +91,7 @@ export function TradingUser({uid2,name2,won2,cards2}){
                         {cards2.map((card, index) => (
                             <button className="cardsButton" onClick={() => addCardTwo(card)} key={index}>
                                 <img id="cardsImg" src={require(`../cardImages/${cards[card].image}`)} alt={cards[card].name} />
-                                <div id="cardsText">{cards[card].name}</div>
+                                <div id="cardsText">{cards[card].name + " (" +cards[card].rarity + ")"}</div>
                             </button>
                         ))}
                     </div>
