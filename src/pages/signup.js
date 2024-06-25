@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { auth, db } from '../scripts/firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { ref, set } from "firebase/database";
-import { Navigate, useNavigate  } from 'react-router-dom';
+import {  useNavigate  } from 'react-router-dom';
  
 export function SignUp(){
     const [email, setEmail] = useState('');
@@ -25,7 +25,8 @@ export function SignUp(){
             set(ref(db, 'users/' + userCredential.user.uid), {
                 username: username,
                 won: 1000,
-                cards: []
+                cards: [],
+                date: Date.now(),
             }) 
             console.log("Username is " + username);
             navigate("/card_trading_game");

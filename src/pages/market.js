@@ -3,8 +3,7 @@ import React, { useState, useEffect } from "react";
 import Pack from '../images/pack.png';
 import { cards, bronzeCards, silverCards, goldCards } from '../scripts/cardDatabase';
 import { auth, db } from '../scripts/firebase';
-import { ref, set, get, update } from 'firebase/database';
-import { useNavigate } from 'react-router-dom';
+import { ref, get, update } from 'firebase/database';
 
 export function Market(){
     var user = auth.currentUser;
@@ -20,7 +19,7 @@ export function Market(){
 
     async  function rollBronze() {
         if(currentWon < 1000){
-            alert("Not enough won.")
+            alert("Not enough won. Think there is a mistake? Try refreshing the page.")
             return;
         }
 
@@ -61,7 +60,7 @@ export function Market(){
 
     async  function rollSilver() {
         if(currentWon < 5000){
-            alert("Not enough won.")
+            alert("Not enough won. Think there is a mistake? Try refreshing the page.")
             return;
         }
 
@@ -102,7 +101,7 @@ export function Market(){
 
     async  function rollGold() {
         if(currentWon < 15000){
-            alert("Not enough won.")
+            alert("Not enough won. Think there is a mistake? Try refreshing the page.")
             return;
         }
 

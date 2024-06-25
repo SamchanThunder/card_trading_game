@@ -1,14 +1,15 @@
-import Home from '../images/home.svg'
-import Door from '../images/door.svg'
-import Store from '../images/store.svg'
-import Storage from '../images/storage.svg'
-import Trade from '../images/trade.svg'
-import Won from '../images/won.svg'
+import React from 'react';
+import Home from '../images/home.svg';
+import Door from '../images/door.svg';
+import Store from '../images/store.svg';
+import Storage from '../images/storage.svg';
+import Trade from '../images/trade.svg';
+import Won from '../images/won.svg';
 import { userSignOut } from '../scripts/authdetails';
 import { auth, db } from '../scripts/firebase';
 import { useState } from 'react';
 import { Navigate } from '../scripts/navigate';
-import { ref, get } from "firebase/database";
+import { ref, get, update } from "firebase/database";
 
 export function Header() {
     const [currentUsername, setCurrentUsername] = useState('');
@@ -69,12 +70,31 @@ export function Header() {
         get(userRef)
             .then((snapshot) => {
                 if (snapshot.exists()) {
-                    const userData = snapshot.val();
+                    const userData = snapshot.val();  
                     const retrievedUsername = userData.username;
                     const retrievedWon = userData.won;
                     setCurrentUsername(retrievedUsername); 
                     setWon(retrievedWon)
                     console.log("Retrieved username:", retrievedUsername, " Won: ", retrievedWon);
+
+                    const retrievedDate = userData.date;
+                    let currentTime = Date.now();
+                    if(currentTime > retrievedDate + 1800000){
+                        let remainder = Math.floor((currentTime - retrievedDate) / 1800000);
+                        currentTime = currentTime - ((currentTime - retrievedDate) %  1800000);
+                        console.log("Current time: " + currentTime + ", Past Time: " + retrievedDate + ", Remainder: " + remainder)
+                        update(ref(db, 'users/' + user.uid), {
+                            date: currentTime,
+                            won: parseInt(retrievedWon) + (1000 * remainder),
+                        }) 
+
+                        const secondTime = snapshot.val();
+                        const secondWon = secondTime.won;
+                        setWon(secondWon);
+                    } 
+
+
+
                 } else {
                     console.log("No data available");
                 }
