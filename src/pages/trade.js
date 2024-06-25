@@ -1,13 +1,18 @@
 import { ref, get } from "firebase/database";
 import { useState, useEffect } from "react";
 import { auth, db } from '../scripts/firebase'; 
+import { TradingUser } from "./tradingUser";
 import '../style_sheets/trade.css';
 
 export function Trade() {
     const [currentUID, setUID] = useState([]);
+    const [currentWon, setWon] = useState([]);
     const [currentName, setName] = useState([]);
     const [username, setUsername] = useState("");
     const [loading, setLoading] = useState(true);
+    const [showTradingUser, setShowTradingUser] = useState(false);
+    const [selectedUser, setSelectedUser] = useState({ uid: "", name: "", won: ""});; 
+
     const user = auth.currentUser;
 
     useEffect(() => {
@@ -16,6 +21,14 @@ export function Trade() {
         }
     }, [user]);
 
+    useEffect(() => {
+        if (selectedUser.won !== "") {
+            setShowTradingUser(true);
+        } else {
+            setShowTradingUser(false);
+        }
+    }, [selectedUser]);
+    
     function retrieveData() {
         const userRef = ref(db, 'users/');
         get(userRef)
@@ -31,7 +44,7 @@ export function Trade() {
                     });
 
                     setUID(usersArray.map(user => user.uid));
-
+                    setWon(usersArray.map(user => user.won));
                     const namesArray = usersArray.map(user => user.username.toUpperCase());
                     setName(namesArray);
                     console.log("Names fetched:", namesArray);
@@ -61,13 +74,21 @@ export function Trade() {
         return <div><font color="white">Loading...</font></div>;
     }
 
-    function enterTrade(){
+    function enterTrade(x){
+        x.preventDefault();
+        let UID2 = "";
+        let won2 = 0;
+        let name2 = username.toUpperCase();
         if(currentName.includes(username.toUpperCase())){
-            alert("Trade");
+            let indexTwo = currentName.indexOf(username.toUpperCase());
+            UID2 = currentUID[indexTwo];
+            won2 = currentWon[indexTwo];
+            setSelectedUser({ uid: UID2, name: name2, won: won2});
         }else{
-            alert("No trade");
+            alert("That user does not exist.");
         }
     }
+
     return (
         <div id="tradeBox">
             <div id="tradeItem">
@@ -86,6 +107,10 @@ export function Trade() {
             <div id="tradeItem">
                 <div id="tradeReq">Trade Requests:</div>
             </div>
+
+            {showTradingUser && (
+                <TradingUser uid2={selectedUser.uid} name2={selectedUser.name} won2={selectedUser.won} />
+            )}
         </div>
     );
 }

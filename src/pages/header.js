@@ -14,6 +14,7 @@ import { ref, get, update } from "firebase/database";
 export function Header() {
     const [currentUsername, setCurrentUsername] = useState('');
     const [currentWon, setWon] = useState('');
+    const [loading, setLoading] = useState(true);
     var user = auth.currentUser;
     const { newPage } = Navigate();
 
@@ -22,10 +23,13 @@ export function Header() {
         userSignOut(); 
         window.location.reload();
     }
+    retrieveUsername(user.uid);
+    if (loading) {
+        return <div><font color="white">Loading...</font></div>;
+    }
 
     if (user != null){
         console.log("signed in!");
-        retrieveUsername(user.uid);
         return (
             <div id="headerContainer">
                 <header id="leftHeader">
@@ -101,6 +105,9 @@ export function Header() {
             })
             .catch((error) => {
                 console.error("Error retrieving username:", error);
+            })
+            .finally(() => {
+                setLoading(false);
             });
     }
 }

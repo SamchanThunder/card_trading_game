@@ -67,3 +67,10 @@
     color: white;
     font-weight: bold;
 }
+
+#tradingBackground{
+    z-index: 2;
+    position: fixed;
+    height: 1000px;
+    background-color: white;
+}
