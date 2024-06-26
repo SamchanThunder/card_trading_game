@@ -1,0 +1,30 @@
+#auctionBg{
+    position: fixed;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+#imgAuction{
+    width: 225px;
+    display: block;
+    margin: 0 auto;
+}
+
+#auctionName{
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+#auctionButton{
+    width: 250px;
+    height: 80px;
+    border: none;
+    border-radius: 25px;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    background-color: rgb(235, 133, 196);
+}

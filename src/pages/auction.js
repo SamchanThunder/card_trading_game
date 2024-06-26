@@ -1,9 +1,9 @@
-import '../style_sheets/market.css';
+import '../style_sheets/auction.css';
 import React, { useState, useEffect } from "react";
-import Pack from '../images/pack.png';
 import { mythicCards } from '../scripts/cardDatabase';
 import { auth, db } from '../scripts/firebase';
 import { ref, get, update } from 'firebase/database';
+import Pack from '../images/pack.png';
 
 export function Auction(){
     var user = auth.currentUser;
@@ -41,8 +41,10 @@ export function Auction(){
         }
 
         return(
-            <div>
-                
+            <div id="auctionBg">
+                <img src={Pack} id="imgAuction"></img>
+                <div id="auctionName">NAME</div><br />
+                <button id="auctionButton">Buy for 100000 WON</button>
             </div>
         )
 }

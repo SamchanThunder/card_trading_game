@@ -5,6 +5,7 @@ import Store from '../images/store.svg';
 import Storage from '../images/storage.svg';
 import Trade from '../images/trade.svg';
 import Won from '../images/won.svg';
+import Auction from '../images/auction.svg'
 import { userSignOut } from '../scripts/authdetails';
 import { auth, db } from '../scripts/firebase';
 import { useState } from 'react';
@@ -48,6 +49,9 @@ export function Header() {
                 <header id="mainHeader">
                     <button id="headerButton" onClick={() => newPage("/card_trading_game/trade")}>
                         <img src={Trade} id="headerHome" alt="Trade"/>
+                    </button>
+                    <button id="headerButton" onClick={() => newPage("/card_trading_game/auction")}>
+                        <img src={Auction} id="headerHome" alt="Auction"/>
                     </button>
                     <button id="headerButton" onClick={() => newPage("/card_trading_game/market")}>
                         <img src={Store} id="headerHome" alt="Market"/>
