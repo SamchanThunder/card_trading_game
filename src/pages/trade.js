@@ -2,6 +2,7 @@ import { ref, get } from "firebase/database";
 import { useState, useEffect } from "react";
 import { auth, db } from '../scripts/firebase'; 
 import { TradingUser } from "./tradingUser";
+import { TradeReq } from "./tradeReq";
 import '../style_sheets/trade.css';
 
 export function Trade() {
@@ -12,7 +13,10 @@ export function Trade() {
     const [username, setUsername] = useState("");
     const [loading, setLoading] = useState(true);
     const [showTradingUser, setShowTradingUser] = useState(false);
-    const [selectedUser, setSelectedUser] = useState({ uid: "", name: "", won: "", cards: null});; 
+    const [showTradingReq, setShowTradingReq] = useState(false);
+    const [selectedUser, setSelectedUser] = useState({ uid: "", name: "", won: "", cards: null}); 
+    const [yesTradeReq, setYesTradeReq] = useState(false); 
+    const [nameOfReq, setNameOfReq] = useState("");
 
     const user = auth.currentUser;
 
@@ -60,6 +64,22 @@ export function Trade() {
             .finally(() => {
                 setLoading(false);
             });
+
+            const tradeUserRef = ref(db, 'trades/' + user.uid);
+            get(tradeUserRef)
+                .then((snapshot) => {
+                    if (snapshot.exists()) {
+                        const userData = snapshot.val();  
+                        const retrievedUsername = userData.name1;
+                        setNameOfReq(retrievedUsername);
+                        setYesTradeReq(true);
+                    } else {
+                        console.log("No data available");
+                    }
+                })
+                .catch((error) => {
+                    console.error("Error retrieving username:", error);
+                });
     }
 
     useEffect(() => {
@@ -94,6 +114,10 @@ export function Trade() {
         }
     }
 
+    function changeStatusReq(){
+        setShowTradingReq(true);
+    }
+
     return (
         <div id="tradeBox">
             <div id="tradeItem">
@@ -111,10 +135,17 @@ export function Trade() {
             </div>
             <div id="tradeItem">
                 <div id="tradeReq">Trade Requests:</div>
+                {yesTradeReq && (
+                    <button id="tradeReqButton" onClick={changeStatusReq}>You have a trade request from <div style={{ color: '#ff80d0' }}> {nameOfReq}</div> <b><u>Click Me to View!</u></b></button>
+            )}
             </div>
 
             {showTradingUser && (
                 <TradingUser uid2={selectedUser.uid} name2={selectedUser.name} won2={selectedUser.won} cards2={selectedUser.cards} />
+            )}
+
+            {showTradingReq && (
+                <TradeReq />
             )}
         </div>
     );

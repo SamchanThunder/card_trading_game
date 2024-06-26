@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Home from '../images/home.svg';
 import Door from '../images/door.svg';
 import Store from '../images/store.svg';
@@ -19,11 +19,20 @@ export function Header() {
     const { newPage } = Navigate();
 
     function leaveAccount(){
-        newPage("/card_trading_game");
+        setCurrentUsername('');
+        setWon('');
         userSignOut(); 
+        newPage("/card_trading_game");
         window.location.reload();
     }
-    retrieveUsername(user.uid);
+    useEffect(() => {
+        if (user) {
+            retrieveUsername(user.uid);
+        } else {
+            setLoading(false); 
+        }
+    }, [user]);
+
     if (loading) {
         return <div><font color="white">Loading...</font></div>;
     }

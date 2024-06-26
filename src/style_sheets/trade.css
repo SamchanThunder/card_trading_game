@@ -61,6 +61,11 @@
     position: relative;
 }
 
+#tradeButton:hover{
+    background-color: rgb(209, 106, 183);
+    cursor: pointer;
+}
+
 #tradeReq{
     position: relative;
     top:40px;
@@ -90,6 +95,7 @@
 
 #tradingMiddle {
     width: 25%;
+    text-align: center;
 }
 
 .cardsContainer {
@@ -157,6 +163,41 @@
     cursor: pointer;
 }
 
+#submitTrade1{
+    margin-top: auto;
+    margin-bottom: 30px;
+    width: 280px;
+    height: 70px;
+    border-radius: 20px;
+    border: none;
+    background-color: rgb(115, 230, 105);
+    font-size: 30px;
+    color: white;
+    font-weight: bold;
+}
+
+#submitTrade1:hover{
+    background-color: rgb(112, 219, 85);
+    cursor: pointer;
+}
+
+#submitTrade2{
+    margin-top: auto;
+    width: 280px;
+    height: 70px;
+    border-radius: 20px;
+    border: none;
+    background-color: rgb(238, 102, 102);
+    font-size: 30px;
+    color: white;
+    font-weight: bold;
+}
+
+#submitTrade2:hover{
+    background-color: rgb(224, 82, 82);
+    cursor: pointer;
+}
+
 #leaveTrade{
     background: none;
     color: rgb(221, 95, 95);
@@ -167,4 +208,28 @@
 #leaveTrade:hover{
     color: red;
     cursor: pointer;
+}
+
+#tradeReqButton{
+    position: relative;
+    top: 50px;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    width: 300px;
+    height: 150px;
+    color: rgb(207, 138, 149);
+    font-size: 30px;
+
+}
+
+#tradeReqButton:hover{
+    background-color: rgb(240, 240, 240);
+    cursor: pointer;
+}
+
+#reqTitleOffer{
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
 }
