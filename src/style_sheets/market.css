@@ -2,7 +2,7 @@
     position: relative;
     display: flex;
     justify-content: center;
-    gap: 200px;
+    gap: 110px;
     top: 120px;
 
 }
@@ -10,7 +10,7 @@
     position: relative;
     display: flex;
     justify-content: center;
-    gap: 190px;
+    gap: 100px;
     top: 120px;
 }
 
@@ -21,7 +21,7 @@
     width: 250px;
     height: 75px;
     color:rgb(224, 171, 180);
-    font-size: 40px;
+    font-size: 35px;
     font-weight: bold;
     border-color: rgb(196, 133, 144);
     border-radius: 10px;

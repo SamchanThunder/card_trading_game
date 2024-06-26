@@ -1,7 +1,7 @@
 import '../style_sheets/market.css';
 import React, { useState, useEffect } from "react";
 import Pack from '../images/pack.png';
-import { cards, bronzeCards, silverCards, goldCards } from '../scripts/cardDatabase';
+import { cards, commonCards, rareCards, epicCards, legendaryCards, mythicCards } from '../scripts/cardDatabase';
 import { auth, db } from '../scripts/firebase';
 import { ref, get, update } from 'firebase/database';
 
@@ -17,7 +17,7 @@ export function Market(){
     }, [])
 
 
-    async  function rollBronze() {
+    async  function rollCommon() {
         if(currentWon < 1000){
             alert("Not enough won. Think there is a mistake? Try refreshing the page.")
             return;
@@ -26,40 +26,43 @@ export function Market(){
         setShowRollingCards(true);
 
         const randomRarity = Math.floor(Math.random() * 100) + 1;
-        //70% bronze, 25% silver, 5% gold
+
+        console.log("Rolled" + " Chance: " + randomRarity);
+        let nameObj = "0";
+
+        //70% common, 25% rare, 5% epic
+        if(randomRarity <= 70){
+            const cardsArray = Object.keys(commonCards); 
+            const randomIndex = Math.floor(Math.random() * cardsArray.length);
+            nameObj = Object.keys(commonCards)[randomIndex]
+        }else if(randomRarity <= 95){
+            const cardsArray = Object.keys(rareCards); 
+            const randomIndex = Math.floor(Math.random() * cardsArray.length);
+            nameObj = Object.keys(rareCards)[randomIndex]
+        }else{
+            const cardsArray = Object.keys(epicCards); 
+            const randomIndex = Math.floor(Math.random() * cardsArray.length);
+            nameObj = Object.keys(epicCards)[randomIndex]
+        }
+
+        let tempArray = currentCards;
+        console.log(tempArray);
+        tempArray.push(nameObj);
+        setCurrentCards(tempArray);
+
+        update(ref(db, 'users/' + user.uid), {
+            cards: currentCards,
+            won: currentWon - 1000,
+        }) 
+
         setTimeout(async () => {            
-            console.log("Rolled" + " Chance: " + randomRarity);
-            let nameObj = "0";
-            if(randomRarity <= 70){
-                const cardsArray = Object.keys(bronzeCards); 
-                const randomIndex = Math.floor(Math.random() * cardsArray.length);
-                nameObj = Object.keys(bronzeCards)[randomIndex]
-            }else if(randomRarity <= 95){
-                const cardsArray = Object.keys(silverCards); 
-                const randomIndex = Math.floor(Math.random() * cardsArray.length);
-                nameObj = Object.keys(silverCards)[randomIndex]
-            }else{
-                const cardsArray = Object.keys(goldCards); 
-                const randomIndex = Math.floor(Math.random() * cardsArray.length);
-                nameObj = Object.keys(goldCards)[randomIndex]
-            }
             setCardName(nameObj);
             console.log(nameObj);
-
-            let tempArray = currentCards;
-            console.log(tempArray);
-            tempArray.push(nameObj);
-            setCurrentCards(tempArray);
-
-            update(ref(db, 'users/' + user.uid), {
-                cards: currentCards,
-                won: currentWon - 1000,
-            }) 
         }, 5000); 
     }
 
-    async  function rollSilver() {
-        if(currentWon < 5000){
+    async  function rollRare() {
+        if(currentWon < 10000){
             alert("Not enough won. Think there is a mistake? Try refreshing the page.")
             return;
         }
@@ -67,40 +70,40 @@ export function Market(){
         setShowRollingCards(true);
 
         const randomRarity = Math.floor(Math.random() * 100) + 1;
-        //10% bronze, 70% silver, 20% gold
+        //15% common 70% rare 15% epic
+        console.log("Rolled" + " Chance: " + randomRarity);
+        let nameObj = "0";
+        if(randomRarity <= 15){
+            const cardsArray = Object.keys(commonCards); 
+            const randomIndex = Math.floor(Math.random() * cardsArray.length);
+            nameObj = Object.keys(commonCards)[randomIndex]
+        }else if(randomRarity <= 85){
+            const cardsArray = Object.keys(rareCards); 
+            const randomIndex = Math.floor(Math.random() * cardsArray.length);
+            nameObj = Object.keys(rareCards)[randomIndex]
+        }else{
+            const cardsArray = Object.keys(epicCards); 
+            const randomIndex = Math.floor(Math.random() * cardsArray.length);
+            nameObj = Object.keys(epicCards)[randomIndex]
+        }
+
+        let tempArray = currentCards;
+        console.log(tempArray);
+        tempArray.push(nameObj);
+        setCurrentCards(tempArray);
+
+        update(ref(db, 'users/' + user.uid), {
+            cards: currentCards,
+            won: currentWon - 10000,
+        }) 
         setTimeout(async () => {            
-            console.log("Rolled" + " Chance: " + randomRarity);
-            let nameObj = "0";
-            if(randomRarity <= 70){
-                const cardsArray = Object.keys(silverCards); 
-                const randomIndex = Math.floor(Math.random() * cardsArray.length);
-                nameObj = Object.keys(silverCards)[randomIndex]
-            }else if(randomRarity <= 80){
-                const cardsArray = Object.keys(bronzeCards); 
-                const randomIndex = Math.floor(Math.random() * cardsArray.length);
-                nameObj = Object.keys(bronzeCards)[randomIndex]
-            }else{
-                const cardsArray = Object.keys(goldCards); 
-                const randomIndex = Math.floor(Math.random() * cardsArray.length);
-                nameObj = Object.keys(goldCards)[randomIndex]
-            }
             setCardName(nameObj);
             console.log(nameObj);
-
-            let tempArray = currentCards;
-            console.log(tempArray);
-            tempArray.push(nameObj);
-            setCurrentCards(tempArray);
-
-            update(ref(db, 'users/' + user.uid), {
-                cards: currentCards,
-                won: currentWon - 5000,
-            }) 
         }, 5000); 
     }
 
-    async  function rollGold() {
-        if(currentWon < 15000){
+    async function rollEpic() {
+        if(currentWon < 25000){
             alert("Not enough won. Think there is a mistake? Try refreshing the page.")
             return;
         }
@@ -108,31 +111,72 @@ export function Market(){
         setShowRollingCards(true);
 
         const randomRarity = Math.floor(Math.random() * 100) + 1;
-        //30% silver, 70% gold
+        //20% rare, 70% epic 10% legendary
+        console.log("Rolled" + " Chance: " + randomRarity);
+        let nameObj = "0";
+        if(randomRarity <= 20){
+            const cardsArray = Object.keys(rareCards); 
+            const randomIndex = Math.floor(Math.random() * cardsArray.length);
+            nameObj = Object.keys(rareCards)[randomIndex]
+        }else if(randomRarity <= 90){
+            const cardsArray = Object.keys(epicCards); 
+            const randomIndex = Math.floor(Math.random() * cardsArray.length);
+            nameObj = Object.keys(epicCards)[randomIndex]
+        }else{
+            const cardsArray = Object.keys(legendaryCards); 
+            const randomIndex = Math.floor(Math.random() * cardsArray.length);
+            nameObj = Object.keys(legendaryCards)[randomIndex]
+        }
+
+        let tempArray = currentCards;
+        console.log(tempArray);
+        tempArray.push(nameObj);
+        setCurrentCards(tempArray);
+
+        update(ref(db, 'users/' + user.uid), {
+            cards: currentCards,
+            won: currentWon - 25000,
+        }) 
         setTimeout(async () => {            
-            console.log("Rolled" + " Chance: " + randomRarity);
-            let nameObj = "0";
-            if(randomRarity <= 30){
-                const cardsArray = Object.keys(silverCards); 
-                const randomIndex = Math.floor(Math.random() * cardsArray.length);
-                nameObj = Object.keys(silverCards)[randomIndex]
-            }else{
-                const cardsArray = Object.keys(goldCards); 
-                const randomIndex = Math.floor(Math.random() * cardsArray.length);
-                nameObj = Object.keys(goldCards)[randomIndex]
-            }
             setCardName(nameObj);
             console.log(nameObj);
+        }, 5000); 
+    }
 
-            let tempArray = currentCards;
-            console.log(tempArray);
-            tempArray.push(nameObj);
-            setCurrentCards(tempArray);
+    async function rollLegendary() {
+        if(currentWon < 100000){
+            alert("Not enough won. Think there is a mistake? Try refreshing the page.")
+            return;
+        }
 
-            update(ref(db, 'users/' + user.uid), {
-                cards: currentCards,
-                won: currentWon - 15000,
-            }) 
+        setShowRollingCards(true);
+
+        const randomRarity = Math.floor(Math.random() * 100) + 1;
+        //20% epic, 80% legendary
+        console.log("Rolled" + " Chance: " + randomRarity);
+        let nameObj = "0";
+        if(randomRarity <= 20){
+            const cardsArray = Object.keys(epicCards); 
+            const randomIndex = Math.floor(Math.random() * cardsArray.length);
+            nameObj = Object.keys(epicCards)[randomIndex]
+        }else{
+            const cardsArray = Object.keys(legendaryCards); 
+            const randomIndex = Math.floor(Math.random() * cardsArray.length);
+            nameObj = Object.keys(legendaryCards)[randomIndex]
+        }
+
+        let tempArray = currentCards;
+        console.log(tempArray);
+        tempArray.push(nameObj);
+        setCurrentCards(tempArray);
+
+        update(ref(db, 'users/' + user.uid), {
+            cards: currentCards,
+            won: currentWon - 100000,
+        }) 
+        setTimeout(async () => {            
+            setCardName(nameObj);
+            console.log(nameObj);
         }, 5000); 
     }
 
@@ -173,17 +217,19 @@ export function Market(){
     return(
         <div>
             <div id="marketBox1">
-                <img src={Pack} id="marketItem1" alt="Bronze Pack"/>
-                <img src={Pack} id="marketItem1" alt="Silver Pack"/>
-                <img src={Pack} id="marketItem1" alt="Gold Pack"/>
+                <img src={Pack} id="marketItem1" alt="Common Pack"/>
+                <img src={Pack} id="marketItem1" alt="Rare Pack"/>
+                <img src={Pack} id="marketItem1" alt="Epic Pack"/>
+                <img src={Pack} id="marketItem1" alt="Legendary Pack"/>
             </div>
             <div id="marketBox2">
-                <button id="marketButton1" onClick={rollBronze}>1000 WON</button>
-                <button id="marketButton1" onClick={rollSilver}>5000 WON</button>
-                <button id="marketButton1" onClick={rollGold}>15000 WON</button>
+                <button id="marketButton1" onClick={rollCommon}>1000 WON</button>
+                <button id="marketButton1" onClick={rollRare}>10000 WON</button>
+                <button id="marketButton1" onClick={rollEpic}>25000 WON</button>
+                <button id="marketButton1" onClick={rollLegendary}>100000 WON</button>
             </div>
             {showRollingCards && (<div id="rollingCards">
-                <img src={require(`../cardImages/${cards[cardName].image}`)} id="chosenCard" alt="Bronze Pack" className="rotate-image"/>
+                <img src={require(`../cardImages/${cards[cardName].image}`)} id="chosenCard" alt="Card Pack" className="rotate-image"/>
                 <div id="cardName">{cards[cardName].name + " (" + cards[cardName].rarity + ")"}</div>
                 <button id="exitMarket" onClick={exit}>X</button>
             </div>)}
