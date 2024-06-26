@@ -6,176 +6,166 @@ export const cards = {
     },
     //Common
     1: {
-        name: "First Card",
-        rarity: "Bronze",
-        image: "pack.png",
+        name: "Jennie",
+        rarity: "Common",
+        image: "jennieCommon.png",
+        price: 100,
     },
     2: {
-        name: "Second Card",
-        rarity: "Bronze",
-        image: "pack.png",
+        name: "Rosé",
+        rarity: "Common",
+        image: "roseCommon.png",
+        price: 100,
     },
     3: {
-        name: "Third Card",
-        rarity: "Bronze",
-        image: "pack.png",
+        name: "Jisoo",
+        rarity: "Common",
+        image: "jisooCommon.png",
+        price: 100,
+    },
+    4: {
+        name: "Lisa",
+        rarity: "Common",
+        image: "lisaCommon.png",
+        price: 100,
     },
 
     //Rare
     501: {
-        name: "First Silver Card",
-        rarity: "Silver",
-        image: "pack.png",
+        name: "Jennie",
+        rarity: "Rare",
+        image: "jennieRare.png",
+        price: 2000,
     },
     502: {
-        name: "Second Silver Card",
-        rarity: "Silver",
-        image: "pack.png",
+        name: "Rosé",
+        rarity: "Rare",
+        image: "roseRare.png",
+        price: 2000,
     },
     503: {
-        name: "Third Silver Card",
-        rarity: "Silver",
-        image: "pack.png",
+        name: "Jisoo",
+        rarity: "Rare",
+        image: "jisooRare.png",
+        price: 2000,
+    },
+    504: {
+        name: "Lisa",
+        rarity: "Rare",
+        image: "lisaRare.png",
+        price: 2000,
     },
 
     //Epic
     1001: {
-        name: "First Gold Card",
-        rarity: "Gold",
-        image: "pack.png",
+        name: "Jennie",
+        rarity: "Epic",
+        image: "jennieEpic.png",
+        price: 5000,
     },
     1002: {
-        name: "Second Gold Card",
-        rarity: "Gold",
-        image: "pack.png",
+        name: "Rosé",
+        rarity: "Epic",
+        image: "roseEpic.png",
+        price: 5000,
     },
     1003: {
-        name: "Third Gold Card",
-        rarity: "Gold",
-        image: "pack.png",
+        name: "Jisoo",
+        rarity: "Epic",
+        image: "jisooEpic.png",
+        price: 5000,
+    },
+    1004: {
+        name: "Lisa",
+        rarity: "Epic",
+        image: "lisaEpic.png",
+        price: 5000,
     },
 
     //Legendary
     1501: {
-        name: "First Gold Card",
-        rarity: "Gold",
-        image: "pack.png",
+        name: "Jennie",
+        rarity: "Legendary",
+        image: "jennieLegendary.png",
+        price: 20000,
     },
     1502: {
-        name: "Second Gold Card",
-        rarity: "Gold",
-        image: "pack.png",
+        name: "Rosé",
+        rarity: "Legendary",
+        image: "roseLegendary.png",
+        price: 20000,
     },
     1503: {
-        name: "Third Gold Card",
-        rarity: "Gold",
-        image: "pack.png",
+        name: "Jisoo",
+        rarity: "Legendary",
+        image: "jisooLegendary.png",
+        price: 20000,
+    },
+    1504: {
+        name: "Lisa",
+        rarity: "Legendary",
+        image: "lisaLegendary.png",
+        price: 20000,
     },
 
     //Mythic
     2001: {
-        name: "First Gold Card",
-        rarity: "Gold",
-        image: "pack.png",
+        name: "Jennie",
+        rarity: "Mythic",
+        image: "jennieMythic.png",
+        price: 100000,
     },
     2002: {
-        name: "Second Gold Card",
-        rarity: "Gold",
-        image: "pack.png",
+        name: "Rosé",
+        rarity: "Mythic",
+        image: "roseMythic.png",
+        price: 100000,
     },
     2003: {
-        name: "Third Gold Card",
-        rarity: "Gold",
-        image: "pack.png",
-    }
+        name: "Jisoo",
+        rarity: "Mythic",
+        image: "jisooMythic.png",
+        price: 100000,
+    },
+    2004: {
+        name: "Lisa",
+        rarity: "Mythic",
+        image: "lisaMythic.png",
+        price: 100000,
+    },
 }
 
 export const commonCards = {
-    1: {
-        name: "First Card",
-        rarity: "Bronze",
-        image: "pack.png",
-    },
-    2: {
-        name: "Second Card",
-        rarity: "Bronze",
-        image: "pack.png",
-    },
-    3: {
-        name: "Third Card",
-        rarity: "Bronze",
-        image: "pack.png",
-    }
+    1: {},
+    2: {},
+    3: {},
+    4: {},
 }
 
 export const rareCards = {
-    501: {
-        name: "First Silver Card",
-        rarity: "Silver",
-        image: "pack.png",
-    },
-    502: {
-        name: "Second Silver Card",
-        rarity: "Silver",
-        image: "pack.png",
-    },
-    503: {
-        name: "Third Silver Card",
-        rarity: "Silver",
-        image: "pack.png",
-    }
+    501: {},
+    502: {},
+    503: {},
+    504: {}
 }
 
 export const epicCards = {
-    1001: {
-        name: "First Gold Card",
-        rarity: "Gold",
-        image: "pack.png",
-    },
-    1002: {
-        name: "Second Gold Card",
-        rarity: "Gold",
-        image: "pack.png",
-    },
-    1003: {
-        name: "Third Gold Card",
-        rarity: "Gold",
-        image: "pack.png",
-    }
+    1001: {},
+    1002: {},
+    1003: {},
+    1004: {}
 }
 
 export const legendaryCards = {
-    1501: {
-        name: "First Gold Card",
-        rarity: "Gold",
-        image: "pack.png",
-    },
-    1502: {
-        name: "Second Gold Card",
-        rarity: "Gold",
-        image: "pack.png",
-    },
-    1503: {
-        name: "Third Gold Card",
-        rarity: "Gold",
-        image: "pack.png",
-    }
+    1501: {},
+    1502: {},
+    1503: {},
+    1504: {}
 }
 
 export const mythicCards = {
-    2001: {
-        name: "First Gold Card",
-        rarity: "Gold",
-        image: "pack.png",
-    },
-    2002: {
-        name: "Second Gold Card",
-        rarity: "Gold",
-        image: "pack.png",
-    },
-    2003: {
-        name: "Third Gold Card",
-        rarity: "Gold",
-        image: "pack.png",
-    }
+    2001: {},
+    2002: {},
+    2003: {},
+    2004: {}
 }

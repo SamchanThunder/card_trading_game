@@ -1,7 +1,7 @@
 #storageBox{
     display: flex;
     position: relative;
-    top: 60px;
+    top: 30px;
     left: 30px;
     width: 97%;
     flex-wrap: wrap;
@@ -10,23 +10,26 @@
 
 .storageItem{
     height: 300px; 
-    flex: 0 0 342px;
-    margin: 10px;
+    flex: 0 0 322px;
+    margin: 12px;
     background: none;
     border: none;
-
+    flex-shrink: 0;
 }
 .storageItem:hover {
-    transform: scale(1.1); 
+    transform: scale(1.1);
     cursor: pointer;
 }
 
 #imgStorage{
+    transform: scale(1.2);
     display: block;
     margin: auto;
     width: 150px;
 }
 #storageText{
+    position: relative;
+    top: 20px;
     color: white;
     font-size: 20px;
     font-weight: bold;
@@ -77,5 +80,25 @@
 }
 #sellNo:hover{
     background-color: rgb(224, 92, 92);
+    cursor: pointer;
+}
+
+#changeOrder{
+    position: relative;
+    background-color: rgb(249, 134, 153);
+    border: none;
+    width: 200px;
+    height: 75px;
+    top: 60px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 50px;
+}
+
+#changeOrder:hover{
+    background-color: rgb(223, 137, 151);
     cursor: pointer;
 }

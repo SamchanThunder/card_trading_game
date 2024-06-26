@@ -1,6 +1,10 @@
 import '../style_sheets/market.css';
 import React, { useState, useEffect } from "react";
 import Pack from '../images/pack.png';
+import commonPack from '../images/commonPack.png';
+import rarePack from '../images/rarePack.png';
+import epicPack from '../images/epicPack.png';
+import legendaryPack from '../images/legendaryPack.png';
 import { cards, commonCards, rareCards, epicCards, legendaryCards, mythicCards } from '../scripts/cardDatabase';
 import { auth, db } from '../scripts/firebase';
 import { ref, get, update } from 'firebase/database';
@@ -217,10 +221,10 @@ export function Market(){
     return(
         <div>
             <div id="marketBox1">
-                <img src={Pack} id="marketItem1" alt="Common Pack"/>
-                <img src={Pack} id="marketItem1" alt="Rare Pack"/>
-                <img src={Pack} id="marketItem1" alt="Epic Pack"/>
-                <img src={Pack} id="marketItem1" alt="Legendary Pack"/>
+                <img src={commonPack} id="marketItem1" alt="Common Pack"/>
+                <img src={rarePack} id="marketItem1" alt="Rare Pack"/>
+                <img src={epicPack} id="marketItem1" alt="Epic Pack"/>
+                <img src={legendaryPack} id="marketItem1" alt="Legendary Pack"/>
             </div>
             <div id="marketBox2">
                 <button id="marketButton1" onClick={rollCommon}>1000 WON</button>

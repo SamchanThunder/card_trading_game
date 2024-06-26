@@ -1,5 +1,32 @@
-.startDiv{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#startDiv{
+    background-color: white;
+    box-shadow: 10px 10px 5px 5px rgb(188, 143, 152);
+    position: fixed;
+    top: 53%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 600px;
+    color: rgb(231, 153, 166);
+}
+
+#titleStart{
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#bodyStart{
+    margin-left: 40px;
+    font-size: 20px;
+    color: rgb(233, 88, 112);
+}
+
+#bodySecond{
+    margin-left: 40px;
+    font-size: 30px;
+}
+
+#packChance{
+    font-size: 20px;
 }

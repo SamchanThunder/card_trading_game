@@ -57,7 +57,7 @@ export function SignUp(){
         .then((userCredential) => {
             set(ref(db, 'users/' + userCredential.user.uid), {
                 username: username,
-                won: 5000,
+                won: 150000,
                 cards: [],
                 date: Date.now(),
             }) 

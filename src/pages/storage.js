@@ -44,7 +44,7 @@ export function Storage(){
             });
     }
     function sellCard(cardName){
-        setSellCardPrice(1000);
+        setSellCardPrice(cards[cardName].price);
         setSellCardName(cardName);
         setShowSell(true);
     }
@@ -64,11 +64,18 @@ export function Storage(){
     function leaveSell(){
         setShowSell(false);
     }
+
+    function reOrder(){
+        const cleanedCards = currentCards.filter(item => item !== '' && item !== null);
+        const reversedCards = [...cleanedCards].reverse();
+        setCurrentCards(reversedCards);
+    }
     return(
         <div>
+            <button id="changeOrder" onClick={reOrder}>Change Order Shown</button>
             <div id="storageBox">
                 {currentCards.map((card, index) => (
-                    <button class="storageItem" onClick={() => sellCard(card)}><img id="imgStorage" key={index} src={require(`../cardImages/${cards[card].image}`)}/><div id="storageText">{cards[card].name}</div></button>
+                    <button class="storageItem" onClick={() => sellCard(card)}><img id="imgStorage" key={index} src={require(`../cardImages/${cards[card].image}`)}/><div id="storageText">{cards[card].name +" (" + cards[card].rarity + ")"}</div></button>
                 ))}
             </div>
             {showSell && (

@@ -1,3 +1,6 @@
+button:hover{
+    cursor: pointer;
+}
 #headerContainer {
     display: flex;
     justify-content: space-between;
@@ -27,6 +30,7 @@
 
 #headerButton:hover {
     background-color: rgb(244, 244, 244);
+    cursor: pointer;
 }
 
 #headerHome {

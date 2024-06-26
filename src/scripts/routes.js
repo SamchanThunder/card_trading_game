@@ -1,6 +1,6 @@
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import { Header } from '../pages/header';
-import { StartPage } from '../scripts/startpage';
+import { StartPage } from '../pages/startpage';
 import { SignUp } from '../pages/signup.js'
 import { SignIn } from '../pages/signin.js';
 import { Market } from '../pages/market.js';

@@ -11,6 +11,10 @@
     display: block;
     margin: 0 auto;
 }
+#imgAuction:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
 
 #auctionName{
     color: white;
@@ -27,4 +31,9 @@
     font-size: 25px;
     font-weight: bold;
     background-color: rgb(235, 133, 196);
+}
+
+#auctionButton:hover{
+    background-color: rgb(219, 114, 178);
+    cursor: pointer;
 }
