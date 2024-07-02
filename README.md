@@ -1,5 +1,3 @@
-This project took one week to complete. Please expect minor bugs.
-
 **Link:** https://samchanthunder.github.io/card_trading_game/ 
 
 **What I Learned:**
