@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/card_trading_game/static/css/main.cb5bc931.css",
-    "main.js": "/card_trading_game/static/js/main.258137fd.js",
+    "main.js": "/card_trading_game/static/js/main.a69ab577.js",
     "static/js/453.6a01b817.chunk.js": "/card_trading_game/static/js/453.6a01b817.chunk.js",
     "static/media/jennieMythic.png": "/card_trading_game/static/media/jennieMythic.92266be2c42ae4e65119.png",
     "static/media/lisaEpic.png": "/card_trading_game/static/media/lisaEpic.adb5f298d100d5b60215.png",
@@ -38,11 +38,11 @@
     "index.html": "/card_trading_game/index.html",
     "static/media/trade.svg": "/card_trading_game/static/media/trade.aaecf6a92e56e790a5d370ae43e5cafa.svg",
     "main.cb5bc931.css.map": "/card_trading_game/static/css/main.cb5bc931.css.map",
-    "main.258137fd.js.map": "/card_trading_game/static/js/main.258137fd.js.map",
+    "main.a69ab577.js.map": "/card_trading_game/static/js/main.a69ab577.js.map",
     "453.6a01b817.chunk.js.map": "/card_trading_game/static/js/453.6a01b817.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.cb5bc931.css",
-    "static/js/main.258137fd.js"
+    "static/js/main.a69ab577.js"
   ]
 }
