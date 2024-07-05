@@ -2,9 +2,9 @@
 
 **What I Improved On:**
 
-    1. ReactJS
+    1. ReactJS (Front-end) 
     
-    2. Usage of a database (Firebase) and connecting users within the database
+    2. Usage of a database (Firebase) and connecting users within the database (Back-end)
     
         -LogIn/SignUp system with email, username, and password
         
