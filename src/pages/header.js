@@ -72,7 +72,7 @@ export function Header() {
         console.log("not logged in");
         return (
             <div id="headerContainer">
-                <div id="usernameDisplay">DRAFT</div>
+                <div id="usernameDisplay">CARD TRADING GAME</div>
                 <header id="mainHeader">
                     <button id="headerButton2" onClick={() => newPage("/card_trading_game/signup")}>Sign-Up</button>
                     <button id="headerButton2" onClick={() => newPage("/card_trading_game/signin")}>Sign-In</button>

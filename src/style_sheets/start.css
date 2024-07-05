@@ -6,12 +6,12 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 800px;
-    height: 600px;
+    height: 500px;
     color: rgb(231, 153, 166);
 }
 
 #titleStart{
-    font-size: 40px;
+    font-size: 25px;
     font-weight: bold;
     text-align: center;
 }
@@ -24,7 +24,7 @@
 
 #bodySecond{
     margin-left: 40px;
-    font-size: 30px;
+    font-size: 28px;
 }
 
 #packChance{

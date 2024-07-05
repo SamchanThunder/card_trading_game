@@ -6,11 +6,11 @@ export function StartPage() {
             <div id="titleStart"><br/ ><u>Game Functions (READ ME)</u></div>
             <br />
             <div id="bodyStart">
-                <b>Note:</b> This project was completed in a week. There may be bugs.
+                <b>Note:</b> This project was completed in a week. There may be minor bugs.
             </div>
             <div id="bodySecond">
                 <br />
-                1. You get 1000 won every 30 minutes.
+                1. You get 1000 Won (currency) every 30 minutes.
                 <br />
                 2. Get cards by buying packs.<br />
                 3. View your inventory and sell unwanted cards by clicking on them.<br />

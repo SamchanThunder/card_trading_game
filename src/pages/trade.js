@@ -134,7 +134,7 @@ export function Trade() {
                 </div>
             </div>
             <div id="tradeItem">
-                <div id="tradeReq">Trade Requests:</div>
+                <div id="tradeReq">Trade Requests Received:</div>
                 {yesTradeReq && (
                     <button id="tradeReqButton" onClick={changeStatusReq}>You have a trade request from <div style={{ color: '#ff80d0' }}> {nameOfReq}</div> <b><u>Click Me to View!</u></b></button>
             )}
