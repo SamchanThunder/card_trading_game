@@ -65,6 +65,7 @@ export function SignUp(){
             navigate("/card_trading_game");
         }).catch((error) => {
             console.log(error);
+            alert("That email is already in use.")
         })
     }
 
