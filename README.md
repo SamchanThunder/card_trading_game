@@ -4,7 +4,7 @@
 
     1. ReactJS (Front-end) 
     
-    2. Usage of a database (Firebase) and connecting users within the database (Back-end)
+    2. Back-end with Firebase
     
         -LogIn/SignUp system with email, username, and password
         
