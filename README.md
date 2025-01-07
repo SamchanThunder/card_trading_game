@@ -1,5 +1,3 @@
-**Link:** https://samchanthunder.github.io/card_trading_game/ 
-
 **What I Improved On:**
 
     1. ReactJS (Front-end) 
